@@ -14,10 +14,18 @@ contract DemoNFT is ERC721, ERC721Enumerable, Ownable {
     ) ERC721("DemoNFT", "DNFT") Ownable(initialOwner) {}
 
     /// @dev the function can be called by anyone
+     // Option 1: No return value
     function safeMint(address to) public {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
     }
+
+    // Option 2: With return value
+    // function safeMint(address to) public returns (uint256) {
+    //     uint256 tokenId = _nextTokenId++;
+    //     _safeMint(to, tokenId);
+    //     return tokenId;
+    // }
 
     // The following functions are overrides required by Solidity.
 
